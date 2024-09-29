@@ -1,0 +1,6 @@
+[book]
+authors = ["Mudream"]
+language = "en"
+multilingual = false
+src = "src"
+title = "ToolGUI"

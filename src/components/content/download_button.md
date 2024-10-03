@@ -4,15 +4,39 @@ DownloadButton create a download button component.
 
 ## API
 
+### Interface
+
 ```go
 func DownloadButton(c *tgframe.Container, text string, body []byte, filename string)
-func DownloadButtonWithID(c *tgframe.Container, text string, body []byte, filename, id string)
+func DownloadButtonWithConf(c *tgframe.Container, conf *tgcomp.DownloadButtonConf)
 ```
+
+### Parameters
 
 * `c` is Parent container.
 * `text` is the link text.
 * `body` is the bytes of file.
-* `id` is a user specific element id.
+* `filename` is the file name.
+* `conf` is the configuration of the download button.
+
+```go
+type DownloadButtonConf struct {
+	// MIME specifies the Multipurpose Internet Mail Extension (MIME) type of the downloaded content.
+	// Defaults to "application/octet-stream" if not provided.
+	MIME string
+
+	// Color defines the color of the download button.
+	Color tcutil.Color
+
+	// Disabled indicates whether the download button should be initially disabled.
+	Disabled bool
+
+	// Filename sets the suggested filename for the downloaded content when clicked.
+	Filename string
+
+	ID string
+}
+```
 
 ## Example
 

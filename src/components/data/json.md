@@ -10,6 +10,8 @@ func JSON(c *tgframe.Container, v any)
 
 * `c` is Parent container.
 * `v` is the object.
+  * string: assume to be a serialized JSON string.
+  * other: assume to be a struct and will be converted to a JSON string.
 
 ## Example
 

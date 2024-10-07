@@ -32,7 +32,6 @@
     * [Markdown](components/content/markdown.md)
     * [Divider](components/content/divider.md)
     * [Link](components/content/link.md)
-    * [Download Button](components/content/download_button.md)
     * [Latex](components/content/latex.md)
 
 * [Data Components](components/data/index.md)
@@ -43,6 +42,7 @@
     * [Textarea](components/input/textarea.md)
     * [Textbox](components/input/textbox.md)
     * [Fileupload](components/input/fileupload.md)
+    * [Download Button](components/input/download_button.md)
     * [Checkbox](components/input/checkbox.md)
     * [Button](components/input/button.md)
     * [Select](components/input/select.md)

@@ -7,8 +7,8 @@ DownloadButton create a download button component.
 ### Interface
 
 ```go
-func DownloadButton(c *tgframe.Container, text string, body []byte, filename string)
-func DownloadButtonWithConf(c *tgframe.Container, conf *tgcomp.DownloadButtonConf)
+func DownloadButton(s *tgframe.State, c *tgframe.Container, text string, body []byte) bool
+func DownloadButtonWithConf(s *tgframe.State, c *tgframe.Container, text string, body []byte, conf *DownloadButtonConf) bool
 ```
 
 ### Parameters
@@ -41,7 +41,7 @@ type DownloadButtonConf struct {
 ## Example
 
 ```go
-tgcomp.DownloadButton(p.Main,
+tgcomp.DownloadButton(p.State, p.Main,
     "Download", []byte("123"), "123.txt")
 ```
 

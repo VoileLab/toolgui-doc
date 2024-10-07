@@ -6,6 +6,7 @@ Latex component is used to display LaTeX content.
 
 ```go
 func Latex(c *tgframe.Container, latex string)
+func LatexWithID(c *tgframe.Container, latex string, id string)
 ```
 
 * `c` is the container to add the LaTeX component to.

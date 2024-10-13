@@ -23,4 +23,4 @@ if radioIndex != nil {
 }
 ```
 
-![options component](options.png)
+![options component](radio.png)

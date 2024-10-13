@@ -50,6 +50,8 @@
     * [Datepicker](components/input/datepicker.md)
     * [Timepicker](components/input/timepicker.md)
     * [Datetimepicker](components/input/datetimepicker.md)
+    * [Number Input](components/input/number_input.md)
+    * [Form](components/input/form.md)
 
 * [Layout Components](components/layout/index.md)
     * [Container](components/layout/container.md)

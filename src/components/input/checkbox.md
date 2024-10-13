@@ -4,13 +4,32 @@ Checkbox create a checkbox and return true if it's checked.
 
 ## API
 
+### Interface
+
 ```go
 func Checkbox(s *tgframe.State, c *tgframe.Container, label string) bool
+func CheckboxWithConf(s *tgframe.State, c *tgframe.Container, label string, conf *CheckboxConf) bool
 ```
+
+### Parameters
 
 * `s` is State.
 * `c` is Parent container.
 * `label` is the text on checkbox.
+
+```go
+// CheckboxConf is the configuration for a checkbox.
+type CheckboxConf struct {
+	// Default is true if the checkbox is default checked.
+	Default bool
+
+	// Disabled is true if the checkbox is disabled.
+	Disabled bool
+
+	// ID is the ID of the checkbox.
+	ID string
+}
+```
 
 ## Example
 

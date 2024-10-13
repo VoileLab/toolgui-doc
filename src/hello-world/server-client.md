@@ -20,7 +20,7 @@ func main() {
 		return nil
 	})
 
-	e := tgexec.NewWebExecutor(app).StartService(":3001")
+	tgexec.NewWebExecutor(app).StartService(":3001")
 }
 
 ```

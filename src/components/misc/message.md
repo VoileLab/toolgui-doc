@@ -8,6 +8,11 @@ Message is a component that displays a message.
 
 ```go
 func Message(c *tgframe.Container, text string)
+func MessageInfo(c *tgframe.Container, text string)
+func MessageSuccess(c *tgframe.Container, text string)
+func MessageWarning(c *tgframe.Container, text string)
+func MessageDanger(c *tgframe.Container, text string)
+
 func MessageWithConf(c *tgframe.Container, text string, conf *MessageConf)
 ```
 
@@ -16,6 +21,8 @@ func MessageWithConf(c *tgframe.Container, text string, conf *MessageConf)
 * `c`: Parent container.
 * `text`: Text to display.
 * `conf`: Configuration for the message component.
+
+* `Message[Info|Success|Warning|Danger]`: Create a message with a specific color.
 
 ```go
 type MessageConf struct {
@@ -34,6 +41,10 @@ type MessageConf struct {
 
 ```go
 tgcomp.Message(c, "Hello, World!")
+```
+
+```go
+tgcomp.MessageInfo(c, "Hello, World!")
 ```
 
 ```go

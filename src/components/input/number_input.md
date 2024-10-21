@@ -7,8 +7,11 @@ NumberInput create a number input and return its value.
 ### Interface
 
 ```go
-func Number(s *tgframe.State, c *tgframe.Container, label string) int
-func NumberWithConf(s *tgframe.State, c *tgframe.Container, label string, conf *NumberConf) int
+func NumberFloat64(s *tgframe.State, c *tgframe.Container, label string) *float64
+func NumberWithConfFloat64(s *tgframe.State, c *tgframe.Container, label string, conf *NumberConf[float64]) *float64
+
+func NumberInt64(s *tgframe.State, c *tgframe.Container, label string) *int64
+func NumberWithConfInt64(s *tgframe.State, c *tgframe.Container, label string, conf *NumberConf[int64]) *int64
 ```
 
 ### Parameters
@@ -19,18 +22,18 @@ func NumberWithConf(s *tgframe.State, c *tgframe.Container, label string, conf *
 
 ```go
 // NumberConf is the configuration for a number component.
-type NumberConf struct {
+type NumberConf[T float64 | int64] struct {
 	// Default is the default value of the number component.
-	Default *float64
+	Default *T
 
 	// Min is the minimum value of the number component.
-	Min *float64
+	Min *T
 
 	// Max is the maximum value of the number component.
-	Max *float64
+	Max *T
 
 	// Step is the step of the number component.
-	Step *float64
+	Step *T
 
 	// Color is the color of the number component.
 	Color tcutil.Color
@@ -45,17 +48,22 @@ type NumberConf struct {
 	ID string
 }
 
-func (c *NumberConf) SetMin(min float64) *NumberConf {
+func (c *NumberConf[T]) SetDefault(default T) *NumberConf[T] {
+	c.Default = &default
+	return c
+}
+
+func (c *NumberConf[T]) SetMin(min T) *NumberConf[T] {
 	c.Min = &min
 	return c
 }
 
-func (c *NumberConf) SetMax(max float64) *NumberConf {
+func (c *NumberConf[T]) SetMax(max T) *NumberConf[T] {
 	c.Max = &max
 	return c
 }
 
-func (c *NumberConf) SetStep(step float64) *NumberConf {
+func (c *NumberConf[T]) SetStep(step T) *NumberConf[T] {
 	c.Step = &step
 	return c
 }
@@ -64,8 +72,8 @@ func (c *NumberConf) SetStep(step float64) *NumberConf {
 ## Example
 
 ```go
-numberValue := tgcomp.NumberWithConf(numberCompCol, p.State, "Number",
-	(&tgcomp.NumberConf{
+numberValue := tgcomp.NumberWithConfFloat64(numberCompCol, p.State, "Number",
+	(&tgcomp.NumberConf[float64]{
 		Placeholder: "input the value here",
 		Color:       tcutil.ColorSuccess,
 	}).SetMin(10).SetMax(20).SetStep(2))
